@@ -1,2 +1,9 @@
 server:
   port: 8081
+spring:  cloud:    config:      server:        git:
+          url: https://github.com/nbaez001/microservicio-app .git
+          searchPaths: config-data
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}
+  security:    user:      name: root
+      password: s3cret
