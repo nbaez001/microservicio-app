@@ -1,4 +1,5 @@
 version: "3.7"
+
 services:
   config-service:
     build: ./config-service
@@ -8,3 +9,12 @@ services:
     environment:
       GIT_USER: nbaez001
       GIT_PASSWORD: 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
+
+  registry-service:
+    build: ./registry-service
+    image: registry-service:1.0
+    ports:
+      - 8099:8099
+  product-service:
+    build: ./product-service
+    image: product-service:1.0

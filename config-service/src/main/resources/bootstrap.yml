@@ -8,7 +8,7 @@ spring:
       server:
         git:
           uri: https://github.com/nbaez001/microservicio-app.git
-          default-label: master
+          default-label: 10-DOCKER
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
