@@ -1,5 +1,5 @@
 server:
-  port: 8092
+  port: 8097
   error:
     include-message: always #Agrega el atributo error en el response
 spring:
