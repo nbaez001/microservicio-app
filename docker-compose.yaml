@@ -18,3 +18,5 @@ services:
   product-service:
     build: ./product-service
     image: product-service:1.0
+    ports:
+      - 8091:8091
