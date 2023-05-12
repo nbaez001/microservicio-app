@@ -4,8 +4,6 @@ services:
   config-service:
     build: ./config-service
     image: config-service:1.0
-    ports:
-      - 8081:8081
     environment:
       GIT_USER: nbaez001
       GIT_PASSWORD: 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
