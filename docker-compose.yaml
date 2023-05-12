@@ -9,7 +9,6 @@ services:
     environment:
       GIT_USER: nbaez001
       GIT_PASSWORD: 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
-
   registry-service:
     build: ./registry-service
     image: registry-service:1.0
@@ -18,13 +17,11 @@ services:
   product-service:
     build: ./product-service
     image: product-service:1.0
-    ports:
-      - 8091:8091
   customer-service:
     image: nbaez001/customer-service:latest
-    ports:
-      - 8092:8092
   shopping-service:
     image: nbaez001/shopping-service:latest
+  gateway-service:
+    image: nbaez001/gateway-service:latest
     ports:
-      - 8093:8093
+      - 8080:8080
