@@ -21,10 +21,10 @@ services:
     ports:
       - 8091:8091
   customer-service:
-    image: customer-service:latest
+    image: nbaez001/customer-service:latest
     ports:
       - 8092:8092
   shopping-service:
-    image: shopping-service:latest
+    image: nbaez001/shopping-service:latest
     ports:
       - 8093:8093
