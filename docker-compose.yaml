@@ -12,13 +12,23 @@ services:
     image: nbaez001/registry-service:latest
     ports:
       - 8099:8099
+    depends_on:
+      - config-service
   product-service:
     image: nbaez001/product-service:latest
+    depends_on:
+      - registry-service
   customer-service:
     image: nbaez001/customer-service:latest
+    depends_on:
+      - registry-service
   shopping-service:
     image: nbaez001/shopping-service:latest
+    depends_on:
+      - registry-service
   gateway-service:
     image: nbaez001/gateway-service:latest
     ports:
       - 8080:8080
+    depends_on:
+      - registry-service
