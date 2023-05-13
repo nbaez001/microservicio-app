@@ -14,6 +14,7 @@ services:
       - 8099:8099
     depends_on:
       - config-service
+    command: ["./wait-for-it.sh", "config-service:8081", "--", "java", "-jar", "app.jar"]
   product-service:
     image: nbaez001/product-service:latest
     depends_on:
