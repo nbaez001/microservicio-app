@@ -2,33 +2,33 @@ version: "3.7"
 
 services:
   config-service:
-    image: nbaez001/config-service:latest
+    image: nbaez001/config-service:1.0
     environment:
       GIT_USER: nbaez001
       GIT_PASSWORD: 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
     ports:
       - 8081:8081
   registry-service:
-    image: nbaez001/registry-service:latest
+    image: nbaez001/registry-service:1.0
     ports:
       - 8099:8099
     depends_on:
       - config-service
     command: ["./wait-for-it.sh", "config-service:8081", "--", "java", "-jar", "app.jar"]
   product-service:
-    image: nbaez001/product-service:latest
+    image: nbaez001/product-service:1.0
     depends_on:
       - registry-service
   customer-service:
-    image: nbaez001/customer-service:latest
+    image: nbaez001/customer-service:1.0
     depends_on:
       - registry-service
   shopping-service:
-    image: nbaez001/shopping-service:latest
+    image: nbaez001/shopping-service:1.0
     depends_on:
       - registry-service
   gateway-service:
-    image: nbaez001/gateway-service:latest
+    image: nbaez001/gateway-service:1.0
     ports:
       - 8080:8080
     depends_on:
