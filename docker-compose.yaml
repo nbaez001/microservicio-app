@@ -13,8 +13,7 @@ services:
     ports:
       - 8099:8099
     depends_on:
-      config-service:
-        condition: service_healthy
+      - config-service
   product-service:
     image: nbaez001/product-service:1.0
     depends_on:
