@@ -13,8 +13,8 @@ services:
     ports:
       - 8099:8099
     depends_on:
-      - config-service
-    command: ["./wait-for-it.sh", "config-service:8081", "--", "java", "-jar", "app.jar"]
+      config-service:
+        condition: service_healthy
   product-service:
     image: nbaez001/product-service:1.0
     depends_on:
