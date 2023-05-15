@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-service-deployment
+  labels:
+    app: config-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: config-service
+  template:
+    metadata:
+      labels:
+        app: config-service
+    spec:
+      containers:
+      - name: config-service
+        image: nbaez001/config-service:1.0
+        ports:
+        - containerPort: 8081
+        env:
+        - name: GIT_USER
+          valueFrom: 
+            secretKeyRef:
+              name: config-service-secret
+              key: git-user
+        - name: GIT_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+              name: config-service-secret
+              key: git-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: config-service-service
+spec:
+  type: NodePort
+  selector:
+    app: config-service
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+      nodePort: 30101
